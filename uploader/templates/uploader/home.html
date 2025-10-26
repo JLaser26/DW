@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Share</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+    <h1 class="text-center mb-4">📁 File Share</h1>
+    <div class="text-center mb-4">
+        <a href="{% url 'upload_file' %}" class="btn btn-primary">Upload New File</a>
+    </div>
+
+    {% if files %}
+    <div class="row">
+        {% for file in files %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ file.title }}</h5>
+                    <p class="card-text">{{ file.description }}</p>
+                    <a href="{{ file.file.url }}" class="btn btn-success" download>Download</a>
+                    <p class="text-muted small mt-2">{{ file.uploaded_at|date:"M d, Y H:i" }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-center">No files uploaded yet.</p>
+    {% endif %}
+</div>
+</body>
+</html>
