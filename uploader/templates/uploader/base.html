@@ -20,11 +20,30 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="{% url 'home' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+          <a href="{% url 'home' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'upload' %}" class="nav-link {% if request.path == '/upload/' %}active{% endif %}">Upload</a>
+        </li>
+
+        {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{ user.username }}</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="dropdown-item text-danger">Logout</button>
+                </form>
+              </li>
+
+            </ul>
           </li>
+        {% else %}
           <li class="nav-item">
-            <a href="{% url 'upload_file' %}" class="nav-link {% if request.path == '/upload/' %}active{% endif %}">Upload</a>
+            <a href="{% url 'login' %}" class="nav-link {% if request.path == '/login/' %}active{% endif %}">Login</a>
           </li>
+        {% endif %}
         </ul>
       </div>
     </div>
