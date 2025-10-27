@@ -1,26 +1,55 @@
-# Python
+# ---- PYTHON ----
 __pycache__/
 *.py[cod]
+*$py.class
 *.pyo
 *.pyd
 *.so
 
-# Django
+# ---- DJANGO ----
 *.log
 *.pot
 *.pyc
 *.db
+db.sqlite3
 media/
 staticfiles/
+uploads/
+.env
 
-# Virtual environment
+# ---- MIGRATIONS ----
+*/migrations/__pycache__/
+*/migrations/*.py[cod]
+# (Optional) Uncomment below if you want to ignore all migration files
+# */migrations/*
+
+# ---- VIRTUAL ENVIRONMENT ----
 venv/
 env/
+ENV/
+.venv/
+.python-version
 
-# IDE files
+# ---- IDEs & EDITORS ----
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
 
-# OS files
+# ---- SYSTEM FILES ----
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# ---- TEST & BUILD ----
+.coverage
+.tox/
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+
+# ---- BACKUP & TEMP ----
+*.bak
+*.swp
+*.tmp
