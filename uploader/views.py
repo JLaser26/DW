@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import UploadedFile
-from django.core.files.storage import FileSystemStorage
 
 def home(request):
     files = UploadedFile.objects.all().order_by('-uploaded_at')
@@ -12,5 +12,6 @@ def upload_file(request):
         description = request.POST['description']
         file = request.FILES['file']
         UploadedFile.objects.create(title=title, description=description, file=file)
+        messages.success(request, '✅ File uploaded successfully!')
         return redirect('home')
     return render(request, 'uploader/upload.html')

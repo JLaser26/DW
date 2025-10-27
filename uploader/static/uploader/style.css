@@ -1,0 +1,49 @@
+body {
+  background-color: #f9fafb;
+}
+
+.navbar-brand {
+  font-size: 1.3rem;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.btn {
+  border-radius: 8px;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+/* Make file cards adapt to smaller screens */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* Slightly larger touch areas on phones */
+.btn, .form-control {
+  border-radius: 8px;
+  padding: 10px;
+}
